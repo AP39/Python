@@ -1,4 +1,5 @@
 #introduction
+#This is my first python project.  A small number guessing game.  It has a few cool features such as a helping bot half way through and multiple functions.
 from sys import exit
 from random import randint
 
