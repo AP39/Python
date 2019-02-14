@@ -6,7 +6,7 @@ from random import randint
 from random import choice
 import time
 
-print("Welcome to Python Battleship!")
+print("\nWelcome to Python Battleship!\n")
 
 player_grid = {
 
@@ -30,16 +30,16 @@ def start():
     player_battleship = input("> ")
     player_battleship = player_battleship.title()
     player_grid[player_battleship] = 1
-    print(player_grid)
+#    print(player_grid)
 
     print("The computer will now place it's battleship...")
     for key in computer_grid:
         computer_grid[key] = 0
     computer_battleship = choice(['A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3'])
     computer_grid[computer_battleship] = 1
-    print(computer_grid)
+#    print(computer_grid)
 
-    print("LET'S BATTLE!")
+    print("\nLET'S BATTLE!\n")
     time.sleep(1)
     battle()
 
@@ -47,7 +47,7 @@ def battle():
 #this is where thegame takes place.  it will loop until the player or computer sinks the other's battleship
     player_bomb = input("Choose a grid square to bomb.\n> ")
     player_bomb = player_bomb.title()
-    print(computer_grid)
+#    print(computer_grid)
 
     if computer_grid[player_bomb] == 1:
         print("\nBOOOOOOOOOOOOOOOOOOM!!!\n")
