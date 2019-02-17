@@ -1,5 +1,5 @@
 """ This program allows the user to bet on a python race where 3 pythons race to
-    the finish line.  Players can keep betting on races until they rin out of
+    the finish line.  Players can keep betting on races until they run out of
     money and are kicked out of the python racing trackself.
 """
 from sys import exit
