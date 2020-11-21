@@ -1,12 +1,14 @@
 """
 Allows the downloading of youtube video and audio from playlists or single pages.  Files saved in the same directory as the acetube.py file as .mp4 for video, .mp3 for audio only
 For PLAYLIST make sure the playlist is listed as 'public'
+Only for downloading videos you have the rights to
 """
 import pytube
 from pytube import Playlist
 import re
 import os
 import os.path
+import time
 
 print("\nWELCOME to ACETUBE\n\nYOUTUBE VIDEO AND AUDIO DOWNLOADER\n")
 
@@ -52,8 +54,7 @@ def playlistvideo():
 
     lengthy = len(playlist.video_urls)
     print(f"There are {lengthy} videos in the playlist.")
-    if lengthy > 10:
-        print("Youtube only allows 10 videos per download, the FIRST 10 will be downloaded now.")
+
     z = 1
     for video in playlist.videos:
         if z <= 10:
@@ -62,8 +63,8 @@ def playlistvideo():
             video.streams.get_highest_resolution().download()
             z += 1
         else:
-            print("Youtube only allows 10 downloads per time.")
-            outro()
+            time.sleep(20)
+            z = 1
     print("FINISHED DOWNLOADING!")
     outro()
 
@@ -74,8 +75,7 @@ def playlistaudio():
 
     lengthy = len(playlist.video_urls)
     print(f"There are {lengthy} videos in the playlist.")
-    if lengthy > 10:
-        print("Youtube only allows 10 videos per download, the FIRST 10 will be downloaded now.")
+
     z = 1
     for video in playlist.videos:
         if z <= 10:
@@ -84,8 +84,8 @@ def playlistaudio():
             video.streams.get_audio_only().download()
             z += 1
         else:
-            print("Youtube only allows 10 downloads per time.")
-            outro()
+            time.sleep(20)
+            z = 1
     path = os.getcwd() + ('\\')
     for filename in os.listdir(path):
         main, extension = os.path.splitext(filename)
