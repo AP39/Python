@@ -54,14 +54,15 @@ def playlistvideo():
 
     lengthy = len(playlist.video_urls)
     print(f"There are {lengthy} videos in the playlist.")
-
+    x = 1
     z = 1
     for video in playlist.videos:
         if z <= 10:
             title = video.title
-            print(f"Downloading: {title}")
+            print(f"Downloading #{x}: {title}")
             video.streams.get_highest_resolution().download()
             z += 1
+            x += 1
         else:
             time.sleep(20)
             z = 1
@@ -75,14 +76,15 @@ def playlistaudio():
 
     lengthy = len(playlist.video_urls)
     print(f"There are {lengthy} videos in the playlist.")
-
+    x = 1
     z = 1
     for video in playlist.videos:
         if z <= 10:
             title = video.title
-            print(f"Downloading: {title}")
+            print(f"Downloading #{x}: {title}")
             video.streams.get_audio_only().download()
             z += 1
+            x += 1
         else:
             time.sleep(20)
             z = 1
